@@ -1,0 +1,21 @@
+{
+  "name": "ir-engine-npm-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "setup": "./setup.sh",
+    "start": "npm run setup && npm i && npm run test",
+    "test": "vitest run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "app-root-path": "^3.1.0",
+    "jsdom": "^26.0.0",
+    "vitest": "^3.0.8"
+  }
+}
