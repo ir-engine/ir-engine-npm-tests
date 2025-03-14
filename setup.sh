@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # if .env file does not exist, copy if from .env.default
 
 if [ ! -f .env ]; then
