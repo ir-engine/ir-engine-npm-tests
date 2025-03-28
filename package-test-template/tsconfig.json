@@ -27,5 +27,5 @@
     "types": ["@types/node"]
   },
   "exclude": ["**/node_modules/**"],
-  "include": ["./tests"]
+  "include": ["./*.test.*"]
 }
