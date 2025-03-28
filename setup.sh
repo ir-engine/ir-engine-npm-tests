@@ -21,6 +21,11 @@ echo SCRIPT_DIR $SCRIPT_DIR
 # rm -rf package-lock.json
 # cd $SCRIPT_DIR
 
+# get around sed being different between macos and linux...
+if [[ $(uname) == "Darwin" ]]; then
+  SP=" " # Needed for portability with sed
+fi
+
 # remove existing links
 rm -rf ./packages/
 
@@ -34,7 +39,7 @@ for PACKAGE in ${PACKAGES[@]}; do
   mkdir -p packages-temp
   cp -r package-test-template/ packages-temp/$PACKAGE
   # write package name to package.json
-  sed -i  '' "s/TEMPLATE/test-$PACKAGE/g" packages-temp/$PACKAGE/package.json
+  sed -i${SP}""  -e "s/TEMPLATE/test-$PACKAGE/g" packages-temp/$PACKAGE/package.json
   cp tests/$PACKAGE.test.ts packages-temp/$PACKAGE/$PACKAGE.test.ts
   cd packages-temp/$PACKAGE
   npm link @ir-engine/$PACKAGE
